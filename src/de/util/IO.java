@@ -1,4 +1,4 @@
-package de;
+package de.util;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -200,13 +200,13 @@ public class IO {
   }
 
   // Liest eine Liste von Integern ein
-  public static List<Integer> readInts(String str){
+  public static List<Integer> readIntsAsList(String str){
     System.out.print(str);
-    return readInts();
+    return readIntsAsList();
   }
 
   // Liest eine Liste von Integern ein
-  public static List<Integer> readInts(){
+  public static List<Integer> readIntsAsList(){
     List<Integer> resultList = new ArrayList<>();
     try {
       BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -217,6 +217,58 @@ public class IO {
     }
     catch (Exception e) { }
     return resultList;
+  }
+
+  // Liest eine Liste von Integern ein
+  public static RBT<Integer> readIntsAsRBT(String str){
+    System.out.print(str);
+    return readIntsAsRBT();
+  }
+
+  // Liest eine Liste von Integern ein
+  public static RBT<Integer> readIntsAsRBT(){
+    RBT<Integer> resultRBT = new RBT<>();
+    try {
+      BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+      String line;
+      while ((line = input.readLine()) != null && !line.equals("")) {
+        Integer i = Integer.parseInt(line);
+        resultRBT.insert(i, i);
+      }
+    }
+    catch (Exception e) { }
+    return resultRBT;
+  }
+
+  // Liest eine Liste von Integern aus Datei
+  public static RBT<Integer> readIntsFromRessourceAsRBT(String filename){
+    RBT<Integer> resultRBT = new RBT<>();
+    try {
+      BufferedReader input = new BufferedReader(
+              new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
+      String line;
+      while ((line = input.readLine()) != null && !line.equals("")) {
+        Integer i = Integer.parseInt(line);
+        resultRBT.insert(i, i);
+      }
+    }
+    catch (Exception e) { }
+    return resultRBT;
+  }
+
+  // Liest eine Liste von Integern aus Datei
+  public static List<Integer> readIntsFromRessourceAsList(String filename){
+    List<Integer> result = new ArrayList<>();
+    try {
+      BufferedReader input = new BufferedReader(
+              new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
+      String line;
+      while ((line = input.readLine()) != null && !line.equals("")) {
+        result.add(Integer.parseInt(line));
+      }
+    }
+    catch (Exception e) { }
+    return result;
   }
 }
 
