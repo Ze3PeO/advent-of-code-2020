@@ -270,5 +270,20 @@ public class IO {
     catch (Exception e) { }
     return result;
   }
+
+  // Liest eine Strings von Integern aus Datei
+  public static List<String> readStringsFromRessourceAsList(String filename) {
+    List<String> result = new ArrayList<>();
+    try {
+      BufferedReader input = new BufferedReader(
+              new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
+      String line;
+      while ((line = input.readLine()) != null && !line.equals("")) {
+        result.add(line);
+      }
+    }
+    catch (Exception e) { }
+    return result;
+  }
 }
 

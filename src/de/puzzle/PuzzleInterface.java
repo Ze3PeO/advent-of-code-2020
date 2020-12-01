@@ -1,5 +1,5 @@
 package de.puzzle;
 
-public interface Puzzle {
+public interface PuzzleInterface {
     void start();
 }

@@ -3,11 +3,11 @@ package de.puzzle;
 import de.util.IO;
 import de.util.RBT;
 
-public class Puzzle1 implements Puzzle {
+public class Day1 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 1---");
-        RBT<Integer> input = IO.readIntsFromRessourceAsRBT("day1_input.txt");
+        RBT<Integer> input = IO.readIntsFromRessourceAsRBT("input/day1_input.txt");
         System.out.println(input.getKeysAsList());
 
         System.out.println("1)");
