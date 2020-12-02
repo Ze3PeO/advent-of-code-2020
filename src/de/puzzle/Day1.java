@@ -11,15 +11,15 @@ public class Day1 implements PuzzleInterface {
         System.out.println(input.getKeysAsList());
 
         System.out.println("1)");
-        int result1 = day1_1(input, 2020);
+        int result1 = p1(input, 2020);
         System.out.println("result = " + result1);
 
         System.out.println("2)");
-        int result2 = day1_2(input, 2020);
+        int result2 = p2(input, 2020);
         System.out.println("result = " + result2);
     }
 
-    private static int day1_1(RBT<Integer> inputRBT, int target) {
+    private static int p1(RBT<Integer> inputRBT, int target) {
         for(int num : inputRBT.getKeysAsList()){
             int remainder = target - num;
             if(inputRBT.search(remainder) != null){
@@ -30,10 +30,10 @@ public class Day1 implements PuzzleInterface {
         return -1;
     }
 
-    private static int day1_2(RBT<Integer> inputRBT, int target) {
+    private static int p2(RBT<Integer> inputRBT, int target) {
         for(int num : inputRBT.getKeysAsList()){
             int remainder = target - num;
-            int temp = day1_1(inputRBT, remainder);
+            int temp = p1(inputRBT, remainder);
 
             if(temp > 0){
                 return num * temp;

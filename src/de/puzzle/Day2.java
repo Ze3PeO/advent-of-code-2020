@@ -13,16 +13,16 @@ public class Day2 implements PuzzleInterface {
         System.out.println(input);
 
         System.out.println("1)");
-        int result1 = day1_1(input);
+        int result1 = p1(input);
         System.out.println("result1 = " + result1);
 
         System.out.println("2)");
-        int result2 = day1_2(input);
+        int result2 = p2(input);
         System.out.println("result2 = " + result2);
     }
 
 
-    private static int day1_1(List<String> input) {
+    private static int p1(List<String> input) {
         int validPasswords = 0;
 
         for(String line : input){
@@ -51,7 +51,7 @@ public class Day2 implements PuzzleInterface {
         return validPasswords;
     }
 
-    private static int day1_2(List<String> input) {
+    private static int p2(List<String> input) {
         int validPasswords = 0;
 
         for(String line : input){
