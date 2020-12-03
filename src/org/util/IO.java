@@ -199,18 +199,12 @@ public class IO {
   }
 
   // Liest eine Liste von Integern ein
-  public static List<Integer> readIntsAsList(String str){
-    System.out.print(str);
-    return readIntsAsList();
-  }
-
-  // Liest eine Liste von Integern ein
   public static List<Integer> readIntsAsList(){
     List<Integer> resultList = new ArrayList<>();
     try {
       BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
       String line;
-      while ((line = input.readLine()) != null && !line.equals("")) {
+      while ((line = input.readLine()) != null) {
         resultList.add(Integer.parseInt(line));
       }
     }
@@ -219,18 +213,12 @@ public class IO {
   }
 
   // Liest eine Liste von Integern ein
-  public static RBT<Integer> readIntsAsRBT(String str){
-    System.out.print(str);
-    return readIntsAsRBT();
-  }
-
-  // Liest eine Liste von Integern ein
   public static RBT<Integer> readIntsAsRBT(){
     RBT<Integer> resultRBT = new RBT<>();
     try {
       BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
       String line;
-      while ((line = input.readLine()) != null && !line.equals("")) {
+      while ((line = input.readLine()) != null) {
         Integer i = Integer.parseInt(line);
         resultRBT.insert(i, i);
       }
@@ -246,7 +234,7 @@ public class IO {
       BufferedReader input = new BufferedReader(
               new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
       String line;
-      while ((line = input.readLine()) != null && !line.equals("")) {
+      while ((line = input.readLine()) != null) {
         Integer i = Integer.parseInt(line);
         resultRBT.insert(i, i);
       }
@@ -277,7 +265,7 @@ public class IO {
       BufferedReader input = new BufferedReader(
               new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
       String line;
-      while ((line = input.readLine()) != null && !line.equals("")) {
+      while ((line = input.readLine()) != null) {
         result.add(line);
       }
     }
@@ -291,23 +279,15 @@ public class IO {
     try {
       BufferedReader input = new BufferedReader(
               new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
-      int c = 0;
+      String line;
       int row = 0;
-      int col = 0;
-      while((c = input.read()) != -1)
-      {
-        char character = (char) c;
-        if(character == '.' || character == '#'){
-          result[row][col] = character;
-          //System.out.print(character);
-
-          col++;
-          if(col >= width){
-            col = 0;
-            row++;
-            //System.out.println();
+      while ((line = input.readLine()) != null) {
+        for (int i = 0; i < line.length(); i++){
+          if(line.charAt(i) != '\n'){
+            result[row][i] = line.charAt(i);
           }
         }
+        row++;
       }
     }
     catch (Exception e) { }

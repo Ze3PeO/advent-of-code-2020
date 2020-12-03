@@ -3,14 +3,16 @@ package org.puzzle;
 import org.util.IO;
 
 public class Day3 implements PuzzleInterface{
+    private static final int HEIGHT = 323;
+    private static final int WIDTH = 31;
+
     @Override
     public void start() {
         System.out.println("---Puzzle Day 3---");
-        int height = 323;
-        int width = 31;
-        char[][] input = IO.read2DCharArrayWithKnownDimsFromRessource("input/day3_input.txt", width, height);
-        for (int row = 0; row < height; row++){
-            for (int col = 0; col < width; col++)
+        char[][] input = IO.read2DCharArrayWithKnownDimsFromRessource("input/day3_input.txt", WIDTH, HEIGHT);
+
+        for (int row = 0; row < HEIGHT; row++){
+            for (int col = 0; col < WIDTH; col++)
                 System.out.print(input[row][col]);
             System.out.println();
         }
@@ -26,31 +28,20 @@ public class Day3 implements PuzzleInterface{
 
     private static int p1(char[][] map, int right, int down) {
         int treeCount = 0;
-        int height = map.length;
-        int width = map[0].length;
 
         int col = 0;
-        for(int row = 0; row < height; row += down){
-            if(map[row][col] == '#'){
+        for(int row = 0; row < HEIGHT; row += down){
+            if(map[row][col % WIDTH] == '#'){
                 treeCount++;
             }
-
             col += right;
-            if(col >= width){
-                col = col % width;
-            }
         }
 
         return treeCount;
     }
 
     private static int p2(char[][] map) {
-        int r1 = p1(map, 1, 1);
-        int r2 = p1(map, 3, 1);
-        int r3 = p1(map, 5, 1);
-        int r4 = p1(map, 7, 1);
-        int r5 = p1(map, 1, 2);
-
-        return r1 * r2 * r3 * r4 * r5;
+        return p1(map, 1, 1) * p1(map, 3, 1) * p1(map, 5, 1) *
+                p1(map, 7, 1) * p1(map, 1, 2);
     }
 }
