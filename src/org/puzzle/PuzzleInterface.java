@@ -1,4 +1,4 @@
-package de.puzzle;
+package org.puzzle;
 
 public interface PuzzleInterface {
     void start();

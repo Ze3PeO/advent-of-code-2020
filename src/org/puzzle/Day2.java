@@ -1,7 +1,6 @@
-package de.puzzle;
+package org.puzzle;
 
-import de.util.IO;
-import de.util.RBT;
+import org.util.IO;
 
 import java.util.List;
 

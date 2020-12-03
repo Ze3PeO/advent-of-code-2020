@@ -1,7 +1,6 @@
-package de.util;
+package org.util;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 // Hilfsklasse mit Ein-/Ausgabeanweisungen
@@ -271,7 +270,7 @@ public class IO {
     return result;
   }
 
-  // Liest eine Strings von Integern aus Datei
+  // Liest eine Liste von Strings aus Datei
   public static List<String> readStringsFromRessourceAsList(String filename) {
     List<String> result = new ArrayList<>();
     try {
@@ -280,6 +279,35 @@ public class IO {
       String line;
       while ((line = input.readLine()) != null && !line.equals("")) {
         result.add(line);
+      }
+    }
+    catch (Exception e) { }
+    return result;
+  }
+
+  // Liest eine 2D Char Array aus Datei mit vorgegebenen Dimensionen
+  public static char[][] read2DCharArrayWithKnownDimsFromRessource(String filename, int width, int height){
+    char[][] result = new char[height][width];
+    try {
+      BufferedReader input = new BufferedReader(
+              new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
+      int c = 0;
+      int row = 0;
+      int col = 0;
+      while((c = input.read()) != -1)
+      {
+        char character = (char) c;
+        if(character == '.' || character == '#'){
+          result[row][col] = character;
+          //System.out.print(character);
+
+          col++;
+          if(col >= width){
+            col = 0;
+            row++;
+            //System.out.println();
+          }
+        }
       }
     }
     catch (Exception e) { }

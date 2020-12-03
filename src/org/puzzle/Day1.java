@@ -1,7 +1,7 @@
-package de.puzzle;
+package org.puzzle;
 
-import de.util.IO;
-import de.util.RBT;
+import org.util.IO;
+import org.util.RBT;
 
 public class Day1 implements PuzzleInterface {
     @Override

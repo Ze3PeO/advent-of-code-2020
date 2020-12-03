@@ -1,4 +1,4 @@
-package de.util;
+package org.util;
 
 import java.util.Objects;
 
