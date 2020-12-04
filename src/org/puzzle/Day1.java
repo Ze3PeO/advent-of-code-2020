@@ -19,7 +19,7 @@ public class Day1 implements PuzzleInterface {
         System.out.println("result = " + result2);
     }
 
-    private static int p1(RBT<Integer> inputRBT, int target) {
+    private int p1(RBT<Integer> inputRBT, int target) {
         for(int num : inputRBT.getKeysAsList()){
             int remainder = target - num;
             if(inputRBT.search(remainder) != null){
@@ -30,7 +30,7 @@ public class Day1 implements PuzzleInterface {
         return -1;
     }
 
-    private static int p2(RBT<Integer> inputRBT, int target) {
+    private int p2(RBT<Integer> inputRBT, int target) {
         for(int num : inputRBT.getKeysAsList()){
             int remainder = target - num;
             int temp = p1(inputRBT, remainder);

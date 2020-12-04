@@ -1,7 +1,6 @@
 package org.util;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 // Hilfsklasse mit Ein-/Ausgabeanweisungen
 public class IO {
@@ -292,6 +291,61 @@ public class IO {
     }
     catch (Exception e) { }
     return result;
+  }
+
+  // Einlesen eines Strings aus Datei
+  public static String[] readStringArrayFromRessource(String filename) {
+    try {
+      BufferedReader input = new BufferedReader(
+              new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
+      String lines = "";
+      String line;
+      while ((line = input.readLine()) != null) {
+        lines += " " + line;
+        if(line.equals("")){
+          lines += "\n";
+        }
+      }
+      return lines.split("\n");
+    }
+    catch (Exception e) {
+      return new String[]{};
+    }
+  }
+
+  // Konvertiert String mit KV-Paaren zu einer Map
+  public static Map<String, String> convertStringOfKVPairsToMap(String str){
+    StringTokenizer st = new StringTokenizer(str, " ");
+    String pair;
+    Map<String, String> line = new HashMap<>();
+    while (st.hasMoreTokens())
+    {
+      pair = st.nextToken();
+      String[] pairSplit = pair.split(":");
+      line.put(pairSplit[0], pairSplit[1]);
+    }
+    return line;
+  }
+
+  // Einlesen einer Liste von Maps aus Datei
+  public static List<Map<String, String>> readMapsFromRessource(String filename){
+    List<Map<String, String>> dictionary = new ArrayList<>();
+    try {
+      BufferedReader input = new BufferedReader(
+              new InputStreamReader(IO.class.getClassLoader().getResourceAsStream(filename)));
+      String lineStr = "";
+      String temp;
+      while ((temp = input.readLine()) != null) {
+        lineStr += " " + temp;
+        if(temp.equals("")){
+          dictionary.add(convertStringOfKVPairsToMap(lineStr));
+          lineStr = "";
+        }
+      }
+      dictionary.add(convertStringOfKVPairsToMap(lineStr));
+    }
+    catch (Exception e) { }
+    return dictionary;
   }
 }
 

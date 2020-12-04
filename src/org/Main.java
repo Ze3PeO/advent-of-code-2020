@@ -14,6 +14,7 @@ public class Main {
         puzzleList.add(new Day1());
         puzzleList.add(new Day2());
         puzzleList.add(new Day3());
+        puzzleList.add(new Day4());
 
         int puzzleNum = IO.readInt("Choose a Day: ");
         puzzleList.get(puzzleNum - 1).start();

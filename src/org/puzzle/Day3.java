@@ -26,7 +26,7 @@ public class Day3 implements PuzzleInterface{
         System.out.println("result2 = " + result2);
     }
 
-    private static int p1(char[][] map, int right, int down) {
+    private int p1(char[][] map, int right, int down) {
         int treeCount = 0;
 
         int col = 0;
@@ -40,7 +40,7 @@ public class Day3 implements PuzzleInterface{
         return treeCount;
     }
 
-    private static int p2(char[][] map) {
+    private int p2(char[][] map) {
         return p1(map, 1, 1) * p1(map, 3, 1) * p1(map, 5, 1) *
                 p1(map, 7, 1) * p1(map, 1, 2);
     }

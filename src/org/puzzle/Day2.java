@@ -21,7 +21,7 @@ public class Day2 implements PuzzleInterface {
     }
 
 
-    private static int p1(List<String> input) {
+    private int p1(List<String> input) {
         int validPasswords = 0;
 
         for(String line : input){
@@ -50,7 +50,7 @@ public class Day2 implements PuzzleInterface {
         return validPasswords;
     }
 
-    private static int p2(List<String> input) {
+    private int p2(List<String> input) {
         int validPasswords = 0;
 
         for(String line : input){
