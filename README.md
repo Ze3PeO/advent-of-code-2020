@@ -1,4 +1,4 @@
-# aoc2020 (Advent of Code 2020)
+# advent-of-code-2020
 
 This is a simple IntelliJ Java Project for Advent of Code 2020. The solutions of puzzles are executable by running the Main class (Main.java).
 Simply input the desired day to run it (1-24).
