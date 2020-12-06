@@ -301,7 +301,7 @@ public class IO {
       String lines = "";
       String line;
       while ((line = input.readLine()) != null) {
-        lines += " " + line;
+        lines += line + " ";
         if(line.equals("")){
           lines += "\n";
         }

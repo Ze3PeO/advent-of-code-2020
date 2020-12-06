@@ -12,10 +12,10 @@ public class Day5 implements PuzzleInterface{
         System.out.println("---Puzzle Day 5---");
         List<String> input = IO.readStringsFromRessourceAsList("input/day5_input.txt");
         System.out.println(input);
+        List<Integer> IDs = getSeatIDs(input);
 
         System.out.println("1)");
-        List<Integer> IDs = p1(input);
-        int result1 = IDs.get(IDs.size() - 1);
+        int result1 = p1(IDs);
         System.out.println("result1 = " + result1);
 
         System.out.println("2)");
@@ -23,7 +23,22 @@ public class Day5 implements PuzzleInterface{
         System.out.println("result2 = " + result2);
     }
 
-    private List<Integer> p1(List<String> boardingPasses) {
+    private int p1(List<Integer> IDs) {
+        return IDs.get(IDs.size() - 1);
+    }
+
+    private int p2(List<Integer> IDs) {
+        // Finde die eine fehlende ID in einer sortierten Liste von IDs
+        int currSeatID = IDs.get(0);
+        for(int i = 0; i < IDs.get(IDs.size() - 1); i++){
+            if(IDs.get(i) != currSeatID)
+                return currSeatID;
+            currSeatID++;
+        }
+        return -1;
+    }
+
+    private List<Integer> getSeatIDs(List<String> boardingPasses){
         List<Integer> IDs = new ArrayList<>();
 
         for(String pass : boardingPasses){
@@ -48,16 +63,5 @@ public class Day5 implements PuzzleInterface{
 
         Collections.sort(IDs);
         return IDs;
-    }
-
-    private int p2(List<Integer> IDs) {
-        // Finde die eine fehlende ID in einer sortierten Liste von IDs
-        int currSeatID = IDs.get(0);
-        for(int i = 0; i < IDs.get(IDs.size() - 1); i++){
-            if(IDs.get(i) != currSeatID)
-                return currSeatID;
-            currSeatID++;
-        }
-        return -1;
     }
 }
