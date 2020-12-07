@@ -7,10 +7,8 @@ public class Day6 implements PuzzleInterface{
     public void start() {
         System.out.println("---Puzzle Day 6---");
         String[] input = IO.readStringArrayFromRessource("input/day6_input.txt");
-        System.out.print("[");
         for(String str : input)
-            System.out.print(str + ", ");
-        System.out.println("]");
+            System.out.println(str);
 
         System.out.println("1)");
         int result1 = p1(input);
