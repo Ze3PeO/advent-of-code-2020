@@ -7,3 +7,5 @@ All solutions have their own classes (e.g. Day2.java) with a start function and 
 They can be found in the package "puzzle". 
 
 The package "util" contains some helper classes (e.g. IO, Datastructures). Input data is stored in the ressources folder (res/input/).
+
+The solutions are by no means perfect. Sometimes the puzzles were bruteforced and others weren't solved at all, in which case they return -1.
