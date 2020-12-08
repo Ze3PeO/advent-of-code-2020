@@ -1,5 +1,6 @@
-package org.puzzle;
+package org.puzzle.week1;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 import org.util.RBT;
 
@@ -7,7 +8,7 @@ public class Day1 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 1---");
-        RBT<Integer> input = IO.readIntsFromRessourceAsRBT("input/day1_input.txt");
+        RBT<Integer> input = IO.readIntsFromRessourceAsRBT("input/week1/day1_input.txt");
         System.out.println(input.getKeysAsList());
 
         System.out.println("1)");

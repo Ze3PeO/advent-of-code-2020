@@ -1,16 +1,17 @@
-package org.puzzle;
+package org.puzzle.week1;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 
 import java.util.List;
 import java.util.Map;
 
 
-public class Day4 implements PuzzleInterface{
+public class Day4 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 4---");
-        List<Map<String, String>> maps = IO.readMapsFromRessource("input/day4_input.txt");
+        List<Map<String, String>> maps = IO.readMapsFromRessource("input/week1/day4_input.txt");
         for(Map<String, String> map : maps){
             System.out.println("map = " + map);
         }

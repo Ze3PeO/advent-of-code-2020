@@ -1,5 +1,6 @@
-package org.puzzle;
+package org.puzzle.week1;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 
 import java.util.List;
@@ -8,7 +9,7 @@ public class Day2 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 2---");
-        List<String> input = IO.readStringsFromRessourceAsList("input/day2_input.txt");
+        List<String> input = IO.readStringsFromRessourceAsList("input/week1/day2_input.txt");
         System.out.println(input);
 
         System.out.println("1)");

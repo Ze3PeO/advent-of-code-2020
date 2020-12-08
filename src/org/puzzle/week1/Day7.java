@@ -1,5 +1,6 @@
-package org.puzzle;
+package org.puzzle.week1;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 
 import java.util.HashSet;
@@ -8,11 +9,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Day7 implements PuzzleInterface{
+public class Day7 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 7---");
-        List<String> input = new CopyOnWriteArrayList<>(IO.readStringsFromRessourceAsList("input/day7_input.txt"));
+        List<String> input = new CopyOnWriteArrayList<>(IO.readStringsFromRessourceAsList("input/week1/day7_input.txt"));
         System.out.println("input = " + input);
 
         System.out.println("1)");

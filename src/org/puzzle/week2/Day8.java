@@ -1,15 +1,16 @@
-package org.puzzle;
+package org.puzzle.week2;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day8 implements PuzzleInterface{
+public class Day8 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 8---");
-        List<String> input = IO.readStringsFromRessourceAsList("input/day8_input.txt");
+        List<String> input = IO.readStringsFromRessourceAsList("input/week2/day8_input.txt");
         System.out.println("input = " + input);
 
         System.out.println("1)");
@@ -27,16 +28,16 @@ public class Day8 implements PuzzleInterface{
         for(int i = 0; i < lines.size();){
             if(!visited[i]){
                 visited[i] = true;
-                String[] split = lines.get(i).split(" ");
-                if(split[0].equals("nop")){
+                String[] lineSplit = lines.get(i).split(" ");
+                if(lineSplit[0].equals("nop")){
                     i++;
                 }
-                if(split[0].equals("acc")) {
-                    acc += Integer.parseInt(split[1]);
+                if(lineSplit[0].equals("acc")) {
+                    acc += Integer.parseInt(lineSplit[1]);
                     i++;
                 }
-                if(split[0].equals("jmp")) {
-                    i += Integer.parseInt(split[1]);
+                if(lineSplit[0].equals("jmp")) {
+                    i += Integer.parseInt(lineSplit[1]);
                 }
             }else{
                 i = lines.size();
@@ -48,51 +49,51 @@ public class Day8 implements PuzzleInterface{
     private int p2(List<String> lines) {
         List<Integer> indices = new ArrayList<>();
         for(int i = 0; i < lines.size(); i++){
-            String[] split = lines.get(i).split(" ");
+            String[] lineSplit = lines.get(i).split(" ");
 
-            if(split[0].equals("jmp"))
+            if(lineSplit[0].equals("jmp"))
                 indices.add(i);
-            if(split[0].equals("nop"))
+            if(lineSplit[0].equals("nop"))
                 indices.add(i);
         }
 
         for(int index : indices){
-            String[] editSplit = lines.get(index).split(" ");
-            if(editSplit[0].equals("jmp"))
-                lines.set(index, "nop " + editSplit[1]);
-            if(editSplit[0].equals("nop"))
-                lines.set(index, "jmp " + editSplit[1]);
+            String[] lineToEditSplit = lines.get(index).split(" ");
+            if(lineToEditSplit[0].equals("jmp"))
+                lines.set(index, "nop " + lineToEditSplit[1]);
+            if(lineToEditSplit[0].equals("nop"))
+                lines.set(index, "jmp " + lineToEditSplit[1]);
 
             int acc = 0;
-            boolean exited = true;
+            boolean looped = false;
             boolean[] visited = new boolean[lines.size()];
 
             for(int i = 0; i < lines.size();){
                 if(!visited[i]){
                     visited[i] = true;
-                    String[] split = lines.get(i).split(" ");
-                    if(split[0].equals("nop")){
+                    String[] lineSplit = lines.get(i).split(" ");
+                    if(lineSplit[0].equals("nop")){
                         i++;
                     }
-                    if(split[0].equals("acc")) {
-                        acc += Integer.parseInt(split[1]);
+                    if(lineSplit[0].equals("acc")) {
+                        acc += Integer.parseInt(lineSplit[1]);
                         i++;
                     }
-                    if(split[0].equals("jmp")) {
-                        i += Integer.parseInt(split[1]);
+                    if(lineSplit[0].equals("jmp")) {
+                        i += Integer.parseInt(lineSplit[1]);
                     }
                 }else{
                     i = lines.size();
-                    exited = false;
+                    looped = true;
                 }
             }
 
-            if(editSplit[0].equals("jmp"))
-                lines.set(index, "jmp " + editSplit[1]);
-            if(editSplit[0].equals("nop"))
-                lines.set(index, "nop " + editSplit[1]);
+            if(lineToEditSplit[0].equals("jmp"))
+                lines.set(index, "jmp " + lineToEditSplit[1]);
+            if(lineToEditSplit[0].equals("nop"))
+                lines.set(index, "nop " + lineToEditSplit[1]);
 
-            if(exited)
+            if(!looped)
                 return acc;
         }
 

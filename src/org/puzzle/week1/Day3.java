@@ -1,15 +1,16 @@
-package org.puzzle;
+package org.puzzle.week1;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 
-public class Day3 implements PuzzleInterface{
+public class Day3 implements PuzzleInterface {
     private static final int HEIGHT = 323;
     private static final int WIDTH = 31;
 
     @Override
     public void start() {
         System.out.println("---Puzzle Day 3---");
-        char[][] input = IO.read2DCharArrayWithKnownDimsFromRessource("input/day3_input.txt", WIDTH, HEIGHT);
+        char[][] input = IO.read2DCharArrayWithKnownDimsFromRessource("input/week1/day3_input.txt", WIDTH, HEIGHT);
 
         for (int row = 0; row < HEIGHT; row++){
             for (int col = 0; col < WIDTH; col++)

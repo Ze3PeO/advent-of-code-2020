@@ -1,16 +1,17 @@
-package org.puzzle;
+package org.puzzle.week1;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Day5 implements PuzzleInterface{
+public class Day5 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 5---");
-        List<String> input = IO.readStringsFromRessourceAsList("input/day5_input.txt");
+        List<String> input = IO.readStringsFromRessourceAsList("input/week1/day5_input.txt");
         System.out.println(input);
         List<Integer> IDs = getSeatIDs(input);
 

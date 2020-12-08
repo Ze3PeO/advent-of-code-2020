@@ -1,6 +1,8 @@
 package org;
 
-import org.puzzle.*;
+import org.puzzle.PuzzleInterface;
+import org.puzzle.week1.*;
+import org.puzzle.week2.*;
 import org.util.IO;
 
 import java.util.ArrayList;

@@ -1,12 +1,13 @@
-package org.puzzle;
+package org.puzzle.week1;
 
+import org.puzzle.PuzzleInterface;
 import org.util.IO;
 
-public class Day6 implements PuzzleInterface{
+public class Day6 implements PuzzleInterface {
     @Override
     public void start() {
         System.out.println("---Puzzle Day 6---");
-        String[] input = IO.readStringArrayFromRessource("input/day6_input.txt");
+        String[] input = IO.readStringArrayFromRessource("input/week1/day6_input.txt");
         for(String str : input)
             System.out.println(str);
 
